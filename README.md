@@ -21,6 +21,12 @@ A simple E-Commerce Web Application built using Flask, SQLite, HTML, CSS, and Bo
 - CSS
 - Bootstrap
 
+## Database
+
+This project uses SQLite.
+
+The repository includes a pre-configured `database.db` file with sample product data so the application can be run immediately.
+
 ## How To Run
 
 1. Install dependencies
