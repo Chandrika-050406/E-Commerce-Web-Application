@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>E-Commerce Store</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="navbar">
+    <a href="/">Home</a>
+    <a href="/cart">Cart</a>
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
+</div>
+    
+<h1>Product Catalog</h1>
+
+<div class="container">
+
+{% for product in products %}
+
+<div class="product-card">
+
+{% if product.name == "Laptop" %}
+<img src="{{ url_for('static', filename='images/laptop.jpg') }}" width="150">
+{% elif product.name == "Phone" %}
+<img src="{{ url_for('static', filename='images/phone.jpg') }}" width="150">
+{% elif product.name == "Headphones" %}
+<img src="{{ url_for('static', filename='images/headphones.jpg') }}" width="150">
+{% endif %}
+
+<h3>{{ product.name }}</h3>
+
+<p>₹{{ product.price }}</p>
+
+<a class="btn" href="/add_to_cart/{{ product.id }}">
+    Add To Cart
+</a>
+
+</div>
+{% endfor %}
+
+</div>
+<footer>
+    <p>© 2026 E-Commerce Web Application</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cart</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="navbar">
+    <a href="/">Home</a>
+</div>
+
+<h1>Shopping Cart</h1>
+{% for product in products %}
+
+<div class="cart-item">
+
+    {% if product.name == "Laptop" %}
+        <img src="{{ url_for('static', filename='images/laptop.jpg') }}" width="120">
+    {% elif product.name == "Phone" %}
+        <img src="{{ url_for('static', filename='images/phone.jpg') }}" width="120">
+    {% elif product.name == "Headphones" %}
+        <img src="{{ url_for('static', filename='images/headphones.jpg') }}" width="120">
+    {% endif %}
+
+</div>
+
+{% endfor %}
+{% for product in products %}
+
+<div class="cart-item">
+
+    <h3>{{ product.name }}</h3>
+
+    <p>₹{{ product.price }}</p>
+
+</div>
+
+{% endfor %}
+
+<br>
+
+<center>
+    <a class="btn" href="/checkout">
+        Checkout
+    </a>
+</center>
+
+</body>
+</html>
